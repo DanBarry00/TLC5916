@@ -1,0 +1,53 @@
+{
+  "name": "TLC5916",
+  "version": "1.0.0",
+  "description": "A library for controlling TLC5916 8-channel LED driver shift registers",
+  "keywords": [
+    "tlc5916",
+    "led",
+    "shift-register",
+    "pwm",
+    "driver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanBarry00/TLC5916"
+  },
+  "authors": [
+    {
+      "name": "Dan Barry",
+      "email": "daniel.j.barry@outlook.com",
+      "url": "https://github.com/DanBarry00",
+      "maintainer": true
+    }
+  ],
+  "license": "Unlicense",
+  "frameworks": [
+    "arduino"
+  ],
+  "platforms": [
+    "atmelavr",
+    "atmelsam",
+    "espressif8266",
+    "espressif32"
+  ],
+  "export": {
+    "exclude": [
+      ".git",
+      ".gitignore",
+      ".github",
+      "docs",
+      "examples",
+      "*.md"
+    ]
+  },
+  "examples": [
+    {
+      "name": "TLC5916_demo",
+      "base": "examples",
+      "files": [
+        "src/main.cpp"
+      ]
+    }
+  ]
+}

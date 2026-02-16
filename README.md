@@ -1,2 +1,3 @@
-# TLC5916
-Functions for using the TLC5916 shift register. C++
+# TLC5916 - UNDER CONSTRUCTION
+This works in normal mode. More functionality to come
+
