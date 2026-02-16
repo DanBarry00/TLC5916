@@ -37,17 +37,7 @@
       ".gitignore",
       ".github",
       "docs",
-      "examples",
       "*.md"
     ]
-  },
-  "examples": [
-    {
-      "name": "TLC5916_demo",
-      "base": "examples",
-      "files": [
-        "src/main.cpp"
-      ]
-    }
-  ]
+  }
 }
