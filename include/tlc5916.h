@@ -5,13 +5,13 @@
 #include <stdint.h>
 
 
-typedef struct {
+struct TLC5916 {
     uint8_t sdi_pin;
     uint8_t clk_pin;
     uint8_t latch_pin;
     uint8_t oe_pin;
     uint8_t numDevices;
-} TLC5916
+};
 
 TLC5916 tlc5916;
 
