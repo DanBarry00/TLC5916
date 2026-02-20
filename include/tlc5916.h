@@ -13,7 +13,7 @@ struct TLC5916 {
     uint8_t numDevices;
 };
 
-TLC5916 tlc5916;
+TLC5916 tlc5916_config;
 
 // ================= FUNCTION DECLARATIONS =================
 
