@@ -1,5 +1,7 @@
 #include "tlc5916.h"
 
+TLC5916 tlc5916_config;
+
 // ================= INITIALIZATION =================
 
 bool initTLC5916(uint8_t sdi_pin, uint8_t clk_pin, uint8_t latch_pin, uint8_t oe_pin, uint8_t numDevices) {
