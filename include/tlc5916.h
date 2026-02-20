@@ -5,7 +5,15 @@
 #include <stdint.h>
 
 
-uint8_t numberOfDevices = 0;
+typedef struct {
+    uint8_t sdi_pin;
+    uint8_t clk_pin;
+    uint8_t latch_pin;
+    uint8_t oe_pin;
+    uint8_t numDevices;
+} TLC5916
+
+TLC5916 tlc5916;
 
 // ================= FUNCTION DECLARATIONS =================
 
