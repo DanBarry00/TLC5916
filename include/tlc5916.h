@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <stdint.h>
 
-
+//global struct
 struct TLC5916 {
     uint8_t sdi_pin;
     uint8_t clk_pin;
@@ -13,7 +13,7 @@ struct TLC5916 {
     uint8_t numDevices;
 };
 
-TLC5916 tlc5916_config;
+extern TLC5916 tlc5916_config;
 
 // ================= FUNCTION DECLARATIONS =================
 
@@ -31,7 +31,6 @@ bool initTLC5916(uint8_t sdi_pin, uint8_t clk_pin, uint8_t latch_pin, uint8_t oe
 /**
  * Update shift registers with data for multiple TLC5916 devices
  * @param data Pointer to array of uint8_t values (one byte per device)
- * @param numDevices Number of devices in the chain
  */
 void update_TLC5916(const uint8_t *data);
 
