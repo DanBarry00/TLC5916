@@ -2,28 +2,29 @@
 
 // ================= INITIALIZATION =================
 
-bool initTLC5916(uint8_t numDevices) {
+bool initTLC5916(uint8_t sdi_pin, uint8_t clk_pin, uint8_t latch_pin, uint8_t oe_pin, uint8_t numDevices) {
   // Configure pins as outputs
-  pinMode(PIN_SDI, OUTPUT);
-  pinMode(PIN_CLK, OUTPUT);
-  pinMode(PIN_LATCH, OUTPUT);
-  pinMode(PIN_OE, OUTPUT);
+  pinMode(sdi_pin, OUTPUT);
+  pinMode(clk_pin, OUTPUT);
+  pinMode(latch_pin, OUTPUT);
+  pinMode(oe_pin, OUTPUT);
 
   // Initialize pins to safe state
-  digitalWrite(PIN_LATCH, LOW);
-  digitalWrite(PIN_OE, LOW);    // Enable outputs
-  digitalWrite(PIN_CLK, LOW);
-  digitalWrite(PIN_SDI, LOW);
+  digitalWrite(latch_pin, LOW);
+  digitalWrite(oe_pin, LOW);    // Enable outputs
+  digitalWrite(clk_pin, LOW);
+  digitalWrite(sdi_pin, LOW);
 
+  numberOfDevices = numDevices;
   return true;
 }
 
 // ================= LOW-LEVEL SHIFT REGISTER CODE =================
 
-void updateShiftRegisters(const uint8_t *data, uint8_t numDevices) {
+void update_TLC5916(const uint8_t *data) {
   // Shift out data for all devices
-  for (int dev = 0; dev < numDevices; dev++) {
-    uint8_t value = data[dev];
+  for (int i = 0; i < numberOfDevices; i++) {
+    uint8_t value = data[i];
 
     for (int bit = 0; bit < 8; bit++) {
       digitalWrite(PIN_CLK, LOW);
@@ -39,7 +40,7 @@ void updateShiftRegisters(const uint8_t *data, uint8_t numDevices) {
     }
   }
 
-  // Latch all outputs simultaneously
+  // Latch outputs 
   digitalWrite(PIN_LATCH, HIGH);
   digitalWrite(PIN_LATCH, LOW);
 }
