@@ -27,20 +27,20 @@ void update_TLC5916(const uint8_t *data) {
     uint8_t value = data[i];
 
     for (int bit = 0; bit < 8; bit++) {
-      digitalWrite(PIN_CLK, LOW);
+      digitalWrite(clk_pin, LOW);
 
       if (value & 0x80) {
-        digitalWrite(PIN_SDI, HIGH);
+        digitalWrite(sdi_pin, HIGH);
       } else {
-        digitalWrite(PIN_SDI, LOW);
+        digitalWrite(sdi_pin, LOW);
       }
 
-      digitalWrite(PIN_CLK, HIGH);
+      digitalWrite(clk_pin, HIGH);
       value <<= 1;
     }
   }
 
   // Latch outputs 
-  digitalWrite(PIN_LATCH, HIGH);
-  digitalWrite(PIN_LATCH, LOW);
+  digitalWrite(latch_pin, HIGH);
+  digitalWrite(latch_pin, LOW);
 }
