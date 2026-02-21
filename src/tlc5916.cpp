@@ -37,7 +37,7 @@ bool initTLC5916(uint8_t sdi_pin, uint8_t clk_pin, uint8_t latch_pin, uint8_t oe
 void update_TLC5916(const uint8_t *data) {
   // Shift out data for all devices
   for (int i = 0; i < tlc5916_config.numDevices; i++) {
-    uint8_t value = data[i];
+    uint8_t value = data[tlc5916_config.numDevices - 1 - i]; // Shift out in reverse order
 
     for (int bit = 0; bit < 8; bit++) {
       digitalWrite(tlc5916_config.clk_pin, LOW);
